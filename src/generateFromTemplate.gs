@@ -52,8 +52,9 @@ function generateStudentSheetNames(ss){
   var studentNames = [];
   for(var i=2; i <= rosterSize; i++){ // Skip header row
     var studentFullName = (
-      rosterSheet.getRange(i, 1).getDisplayValue()
-      + rosterSheet.getRange(i, 2).getDisplayValue()
+      rosterSheet.getRange(i, 1).getDisplayValue().replace("'", "").replace(" ", "_")
+      + "_"
+      + rosterSheet.getRange(i, 2).getDisplayValue().replace("'", "").replace(" ", "_")
     );
     studentNames.push(studentFullName);
   }
